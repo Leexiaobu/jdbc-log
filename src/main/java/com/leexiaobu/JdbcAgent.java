@@ -11,7 +11,7 @@ import java.lang.instrument.Instrumentation;
 public class JdbcAgent {
 
   public static void premain(String args, Instrumentation instrumentation) {
-    System.out.println("pre main");
+    System.out.println("pre main master");
     String target = "com.mysql.cj.jdbc.NonRegisteringDriver";
     instrumentation.addTransformer(
         (loader, className, classBeingRedefined, protectionDomain, classfileBuffer) -> {
