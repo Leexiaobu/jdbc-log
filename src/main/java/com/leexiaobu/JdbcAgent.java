@@ -1,7 +1,11 @@
 package com.leexiaobu;
 
 import com.leexiaobu.collect.JdbcCollect;
+
+import java.lang.instrument.ClassFileTransformer;
+import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
+import java.security.ProtectionDomain;
 
 
 /**
@@ -12,6 +16,7 @@ public class JdbcAgent {
 
   public static void premain(String args, Instrumentation instrumentation) {
     System.out.println("pre main");
+      System.out.println("123");
     String target = "com.mysql.cj.jdbc.NonRegisteringDriver";
     instrumentation.addTransformer(
         (loader, className, classBeingRedefined, protectionDomain, classfileBuffer) -> {
